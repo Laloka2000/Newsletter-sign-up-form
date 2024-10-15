@@ -27,7 +27,7 @@ form.addEventListener('submit', function (event) {
   } else {
     // Show Success Message
     displayEmail.textContent = emailValue;
-    form.style.display = 'none';
+    mainContent.style.display = 'none';
     successMessage.style.display = 'block';
   }
 });
@@ -45,7 +45,9 @@ emailInput.addEventListener('input', function () {
 
 // Dismiss Success Message
 dismissButton.addEventListener('click', function () {
-  successMessage.style.display = 'block';
-  form.style.display = 'block';
-  form.reset();
+  successMessage.style.display = 'none';
+  if(successMessage){
+    mainContent.style.display = "";
+    form.reset();
+  }
 });
