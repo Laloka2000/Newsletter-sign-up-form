@@ -1,26 +1,49 @@
-let invalidForm = document.getElementById("invalid-form");
-let form = document.getElementById("form");
-let email = document.getElementById("email");
-let successMessage = document.getElementById("message");
-let submitButton = document.getElementById("submit-btn");
+// Form Elements
+const form = document.getElementById('subscriptionForm');
+const successMessage = document.getElementById('successMessage');
+const dismissButton = document.getElementById('dismissButton');
+const emailInput = document.getElementById('email');
+const displayEmail = document.getElementById('displayEmail');
+const errorMessage = document.getElementById('errorMessage');
 
-const validateEmail = (email) => {
-    return String(email)
-    .toLowerCase()
-    .match(
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    )
+// Email Validation Regex
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+// Form Submission Handler
+form.addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  const emailValue = emailInput.value;
+
+  // Check if email field is empty
+  if (!emailValue) {
+    showError('Email address cannot be empty.');
+  }
+  // Check if email is valid
+  else if (!emailPattern.test(emailValue)) {
+    showError('Please provide a valid email address.');
+  } else {
+    // Show Success Message
+    displayEmail.textContent = emailValue;
+    form.style.display = 'none';
+    successMessage.style.display = 'block';
+  }
+});
+
+// Error Display Function
+function showError(message) {
+  errorMessage.textContent = message;
+  errorMessage.style.display = 'block';
 }
 
+// Hide error when user starts typing again
+emailInput.addEventListener('input', function () {
+  errorMessage.style.display = 'none';
+});
 
-
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    if (validateEmail(email.value)) {
-        successMessage.style.display = "block";
-        form.style.display = "none";
-    } else {
-        invalidForm.style.display = "block";
-    }
-})
-
+// Dismiss Success Message
+dismissButton.addEventListener('click', function () {
+  successMessage.style.display = 'none';
+  form.style.display = 'block';
+  form.reset();
+});
