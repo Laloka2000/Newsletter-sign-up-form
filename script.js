@@ -17,11 +17,13 @@ form.addEventListener('submit', function (event) {
 
   // Check if email field is empty
   if (!emailValue) {
-    showError('Email address cannot be empty.');
+    showError("Enter an email address.");
   }
   // Check if email is valid
   else if (!emailPattern.test(emailValue)) {
     showError('Please provide a valid email address.');
+    emailInput.style.backgroundColor = '#FB6767';
+    emailValue.style.textContent = "#FB6767"
   } else {
     // Show Success Message
     displayEmail.textContent = emailValue;
@@ -43,7 +45,7 @@ emailInput.addEventListener('input', function () {
 
 // Dismiss Success Message
 dismissButton.addEventListener('click', function () {
-  successMessage.style.display = 'none';
+  successMessage.style.display = 'block';
   form.style.display = 'block';
   form.reset();
 });
