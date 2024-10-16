@@ -3,7 +3,7 @@ body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f0f4f8;
+  background-color: hsl(234, 29%, 20%);
 }
 
 h1, h2 {
@@ -16,11 +16,14 @@ p {
 
 main {
   max-width: 1000px;
-  margin: 50px auto;
+  margin: 120px auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
 }
 
 /* Content Layout */
@@ -52,6 +55,12 @@ main {
 
 .list-item {
   margin-bottom: 10px;
+  background-image: url(assets/images/icon-list.svg);
+  background-repeat: no-repeat;
+  padding-left: 30px;
+  font-size: 16px;
+  line-height: 1.5;
+  list-style-type: none;
 }
 
 .subscription-form {
@@ -94,10 +103,12 @@ input:focus {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
 }
 
 .btn:hover {
-  background-color: #1e2a38;
+  background-color: hsl(4, 100%, 67%);
 }
 
 /* Right Content */
@@ -114,6 +125,9 @@ input:focus {
   border: 2px solid #d1e7dd;
   border-radius: 10px;
   margin-top: 20px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .success-message h2 {
