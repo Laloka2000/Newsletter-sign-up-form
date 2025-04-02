@@ -1,6 +1,6 @@
 # Frontend Mentor - Newsletter sign-up form with success message
 
-## This is a front-end coding challenge to build a newsletter sign-up form with a success message. The project aims to help improve coding skills by building a realistic project.
+This is a front-end coding challenge to build a newsletter sign-up form with a success message. The project aims to help improve coding skills by building a realistic project.
 
 ## Main Function Points
 - Users can add their email and submit the form
